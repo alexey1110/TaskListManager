@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class CommentDTO {
     private Long commentID;
-    private String textId;
+    private String commentText;
     private Long taskId;
     private Long userId;
 }

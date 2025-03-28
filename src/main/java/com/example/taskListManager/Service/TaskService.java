@@ -95,9 +95,6 @@ public class TaskService {
                 .orElseThrow(() -> new UserNotFoundException("Author not found"));
         Specification<Task> spec = buildTaskSpecification(status, priority, userId, null);
         return getFilteredAndPaginatedTasks(spec, page, size);
-//        return userOpt.get().getCreatedTasks().stream()
-//                .map(this::convertToDTO)
-//                .collect(Collectors.toList());
     }
 
     public Page<TaskDTO> getAllTasksByExecutor(Long userId, Status status, Priority priority, int page, int size) {
@@ -105,9 +102,6 @@ public class TaskService {
                 .orElseThrow(() -> new UserNotFoundException("Executor not found"));
         Specification<Task> spec = buildTaskSpecification(status, priority, null, userId);
         return getFilteredAndPaginatedTasks(spec, page, size);
-//        return userOpt.get().getAssignedTasks().stream()
-//                .map(this::convertToDTO)
-//                .collect(Collectors.toList());
     }
 
     public TaskDTO getCreatedTaskById(Long userId, Long taskId) {

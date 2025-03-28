@@ -14,7 +14,8 @@ import java.util.function.Function;
 @Service
 public class JwtService {
     @Value("${jwt.secret}")
-    private String secretKey;
+    //private String secretKey;
+    public String secretKey; //для тестов
 
     private Key getSigningKey() {
         byte[] keyBytes = Base64.getDecoder().decode(secretKey);

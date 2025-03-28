@@ -36,7 +36,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             return;
         }
-
         String token = authHeader.substring(7);
         log.info("Extracted JWT Token: {}" + token);
         String userEmail = jwtService.extractUsername(token);
@@ -53,7 +52,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             filterChain.doFilter(request, response);
             return;
         }
-
         if (!jwtService.validateToken(token, userDetails)) {
             log.error("JWT Token validation failed for user: {}" + userEmail);
             filterChain.doFilter(request, response);
